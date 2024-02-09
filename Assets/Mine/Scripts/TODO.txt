@@ -1,0 +1,18 @@
+Merge-Town Like MVRP Sample Project
+
+App Context
+
+Main Context
+
+BuildingContext
+
+MainSheetContext - UI (Game UI)
+    BuildingModalContext - UI (Shop) - Just Numbers ? 2048 ?
+
+Level Based
+    Level Expectations
+    Save Level
+
+Factory
+unit provider - provide - interval
+info towns produce gold. gold - interval.
