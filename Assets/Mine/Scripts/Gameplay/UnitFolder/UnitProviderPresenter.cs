@@ -1,17 +1,17 @@
-using Assets.Mine.Scripts.Gameplay.Factory;
-using Assets.Mine.Scripts.Gameplay.GridSystem;
-using Assets.Mine.Scripts.Utils;
+using Mine.Scripts.Gameplay.FactoryFolder;
+using Mine.Scripts.Utils;
 using TMPro;
 using UniRx;
 using UnityEngine;
 using VContainer;
 using VContainer.Unity;
+using Grid = Mine.Scripts.Gameplay.GridSystem.Grid;
 
-namespace Assets.Mine.Scripts.Gameplay.Unit
+namespace Mine.Scripts.Gameplay.UnitFolder
 {
     public class UnitProviderPresenter : VObject<UnitProviderContext>, IStartable
     {
-        [Inject] private readonly GridSystem.Grid _grid;
+        [Inject] private readonly Grid _grid;
 
         private readonly UnitFactory _unitFactory;
         private readonly UnitProviderContext.UnitProviderView _view;
@@ -51,11 +51,9 @@ namespace Assets.Mine.Scripts.Gameplay.Unit
             {
                 if(_grid.IsFull()) return;
 
-                if(_model.countDown.Value > 0)
-                {
-                    _model.countDown.Value -= 1.0f;
-                    _model.countDown.Value = Mathf.Clamp(_model.countDown.Value, 0f, 10f);
-                }
+                if (!(_model.countDown.Value > 0)) return;
+                _model.countDown.Value -= 1.0f;
+                _model.countDown.Value = Mathf.Clamp(_model.countDown.Value, 0f, 10f);
             }).AddTo(Context.gameObject);
 
         }

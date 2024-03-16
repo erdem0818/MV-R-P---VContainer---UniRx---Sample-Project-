@@ -1,16 +1,15 @@
-using Assets.Mine.Scripts.LevelSystem;
+using Mine.Scripts.Level_System;
 using UnityEngine;
 using VContainer.Unity;
 
-namespace Assets.Mine.Scripts.Gameplay.GridSystem
+namespace Mine.Scripts.Gameplay.GridSystem
 {
     public class GridInitializer : IStartable
     {
         private readonly Grid _grid;
         private readonly LevelContainer _levelContainer;
         private readonly Cell _prefab;
-
-        //todo save system.
+        
         public GridInitializer(Grid grid, LevelContainer container, Cell prefab)
         {
             _grid = grid;

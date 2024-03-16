@@ -1,7 +1,7 @@
-using Assets.Mine.Scripts.Gameplay.Unit;
+using Mine.Scripts.Gameplay.UnitFolder;
 using UnityEngine;
 
-namespace Assets.Mine.Scripts.Gameplay.GridSystem
+namespace Mine.Scripts.Gameplay.GridSystem
 {
     public class Cell : MonoBehaviour
     {

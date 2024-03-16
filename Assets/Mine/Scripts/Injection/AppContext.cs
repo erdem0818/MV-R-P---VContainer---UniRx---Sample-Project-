@@ -1,11 +1,11 @@
-using Assets.Mine.Scripts.Gameplay.GridSystem;
-using Assets.Mine.Scripts.Gameplay.Unit;
-using Assets.Mine.Scripts.LevelSystem;
+using Mine.Scripts.Gameplay.GridSystem;
+using Mine.Scripts.Gameplay.UnitFolder;
+using Mine.Scripts.Level_System;
 using UnityEngine;
 using VContainer;
 using VContainer.Unity;
 
-namespace Assets.Mine.Scripts.Injection
+namespace Mine.Scripts.Injection
 {
     public class AppContext : LifetimeScope
     {

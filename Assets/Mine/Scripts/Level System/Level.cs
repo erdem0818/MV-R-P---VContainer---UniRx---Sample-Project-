@@ -1,7 +1,7 @@
-using UnityEngine;
 using NaughtyAttributes;
+using UnityEngine;
 
-namespace Assets.Mine.Scripts.LevelSystem
+namespace Mine.Scripts.Level_System
 {
     [CreateAssetMenu(menuName = "Data/Level Data", fileName = "Level Data")]
     public class Level : ScriptableObject

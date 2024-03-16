@@ -1,33 +1,32 @@
-using Assets.Mine.Scripts.Gameplay.Factory;
-using Assets.Mine.Scripts.Gameplay.GridSystem;
-using Assets.Mine.Scripts.Utils;
+using Mine.Scripts.Gameplay.FactoryFolder;
+using Mine.Scripts.Gameplay.GridSystem;
+using Mine.Scripts.Utils;
 using UniRx;
 using UniRx.Triggers;
 using UnityEngine;
 using VContainer;
 using VContainer.Unity;
+using Grid = Mine.Scripts.Gameplay.GridSystem.Grid;
 
-namespace Assets.Mine.Scripts.Gameplay.Unit
+namespace Mine.Scripts.Gameplay.UnitFolder
 {
     public class UnitDragPresenter : VObject<UnitContext>, IStartable
     {
-        [Inject] private readonly GridSystem.Grid _grid;
+        [Inject] private readonly Grid _grid;
         [Inject] private readonly UnitFactory _factory;
 
         void IStartable.Start()
         {
-            if(Context.isByMerge == false)
+            if(Context.IsByMerge == false)
                 Place();
             InitalizeView();
         }
 
         private void Clear()
         {
-            if(Context.LocatedCell != null)
-            {
-                Context.LocatedCell.PlacedUnit = null;
-                Context.LocatedCell = null;
-            }
+            if (Context.LocatedCell == null) return;
+            Context.LocatedCell.PlacedUnit = null;
+            Context.LocatedCell = null;
         }
 
         private void Place()
@@ -54,15 +53,14 @@ namespace Assets.Mine.Scripts.Gameplay.Unit
             Vector3 delta = Vector3.zero;
 
             Context.OnMouseDownAsObservable()
-            .Subscribe(_ => 
+            .Subscribe(_ =>
             {
-                if(Context.gameObject != null)
-                {
-                    Vector3 camPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-                    camPos.z = 0f;
-                    Vector3 unitPos = Context.transform.position;
-                    unitPos.z = 0f;
-                }
+                if (Context.gameObject == null) return;
+                
+                Vector3 camPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+                camPos.z = 0f;
+                Vector3 unitPos = Context.transform.position;
+                unitPos.z = 0f;
             }).AddTo(Context.gameObject);
 
             Context.OnMouseDragAsObservable()

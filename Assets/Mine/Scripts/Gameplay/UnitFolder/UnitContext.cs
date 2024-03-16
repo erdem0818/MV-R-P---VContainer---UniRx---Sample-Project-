@@ -1,11 +1,11 @@
-using Assets.Mine.Scripts.Gameplay.GridSystem;
+using Mine.Scripts.Gameplay.GridSystem;
 using TMPro;
 using UniRx;
 using UnityEngine;
 using VContainer;
 using VContainer.Unity;
 
-namespace Assets.Mine.Scripts.Gameplay.Unit
+namespace Mine.Scripts.Gameplay.UnitFolder
 {
     public class UnitContext : LifetimeScope
     {
@@ -22,19 +22,19 @@ namespace Assets.Mine.Scripts.Gameplay.Unit
         }
 
         public Cell LocatedCell { get; set; } = null;
-        public bool isByMerge {get; set;} = false;
-        [field: SerializeField] public UnitView view {get; private set; }
-        [field: SerializeField] public UnitModel model{get; private set; }
+        public bool IsByMerge {get; set;} = false;
+        [field: SerializeField] public UnitView View {get; private set; }
+        [field: SerializeField] public UnitModel Model{get; private set; }
 
         protected override void Configure(IContainerBuilder builder)
         {
             builder.RegisterEntryPoint<UnitDragPresenter>();
             builder.RegisterEntryPoint<UnitEarningSystem>();
 
-            model.Score.SubscribeWithState<int, TextMeshPro>(view.textMesh, (sc, tx) => tx.text = $"{sc}")
+            Model.Score.SubscribeWithState<int, TextMeshPro>(View.textMesh, (sc, tx) => tx.text = $"{sc}")
                 .AddTo(gameObject);
         }
 
-        public void UpdateScore(int score) => model.Score.Value = score;
+        public void UpdateScore(int score) => Model.Score.Value = score;
     }
 }

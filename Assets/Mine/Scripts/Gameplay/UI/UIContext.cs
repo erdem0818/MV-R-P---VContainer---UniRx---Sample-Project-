@@ -1,10 +1,10 @@
-using Assets.Mine.Scripts.Gameplay.Unit;
+using Mine.Scripts.Gameplay.UnitFolder;
 using NaughtyAttributes;
 using UnityEngine;
 using VContainer;
 using VContainer.Unity;
 
-namespace Assets.Mine.Scripts.Gameplay.UI
+namespace Mine.Scripts.Gameplay.UI
 {
     public class UIContext : LifetimeScope
     {

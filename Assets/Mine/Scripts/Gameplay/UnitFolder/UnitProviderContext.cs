@@ -5,7 +5,7 @@ using UnityEngine.UI;
 using VContainer;
 using VContainer.Unity;
 
-namespace Assets.Mine.Scripts.Gameplay.Unit
+namespace Mine.Scripts.Gameplay.UnitFolder
 {
     public class UnitProviderContext : LifetimeScope
     {

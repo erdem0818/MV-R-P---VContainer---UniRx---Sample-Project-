@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace Assets.Mine.Scripts.LevelSystem
+namespace Mine.Scripts.Level_System
 {
     [CreateAssetMenu(menuName = "Data/Level Container", fileName = "Level Container")]
     public class LevelContainer : ScriptableObject
@@ -11,7 +11,7 @@ namespace Assets.Mine.Scripts.LevelSystem
         public Level GetLevel(int index)
         {
             if(index < 0) return Levels[0];
-            if(index >= Levels.Count) return Levels[Levels.Count - 1];
+            if(index >= Levels.Count) return Levels[^1];
             return Levels[index];
         }
     }

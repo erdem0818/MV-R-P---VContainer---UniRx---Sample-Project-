@@ -1,11 +1,11 @@
-using Assets.Mine.Scripts.Gameplay.Unit;
+using Mine.Scripts.Gameplay.UnitFolder;
 using UnityEngine;
 
-namespace Assets.Mine.Scripts.Gameplay.GridSystem
+namespace Mine.Scripts.Gameplay.GridSystem
 {
     public class Grid
     {
-        public Cell[,] _grid;
+        private Cell[,] _grid;
         private int _width;
         private int _height;
 
@@ -102,7 +102,7 @@ namespace Assets.Mine.Scripts.Gameplay.GridSystem
 
         public bool CanMerge(UnitContext first, UnitContext second)
         {
-            if(first.model.Score.Value != second.model.Score.Value)
+            if(first.Model.Score.Value != second.Model.Score.Value)
                 return false;
 
             return true;

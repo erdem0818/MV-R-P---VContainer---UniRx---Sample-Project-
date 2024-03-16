@@ -1,19 +1,18 @@
-using Assets.Mine.Scripts.Gameplay.Factory;
-using Assets.Mine.Scripts.Gameplay.GridSystem;
-using Assets.Mine.Scripts.Utils;
+using Mine.Scripts.Gameplay.FactoryFolder;
+using Mine.Scripts.Gameplay.GridSystem;
+using Mine.Scripts.Utils;
 using NaughtyAttributes;
-using TMPro;
 using UniRx;
 using UnityEngine;
-using UnityEngine.UI;
 using VContainer;
 using VContainer.Unity;
+using Grid = Mine.Scripts.Gameplay.GridSystem.Grid;
 
-namespace Assets.Mine.Scripts.Injection
+namespace Mine.Scripts.Injection
 {
     public class ScoreModel
     {
-        public ReactiveProperty<int> Score = new(0);
+        public readonly ReactiveProperty<int> score = new(0);
     }
 
     public class MainContext : LifetimeScope
@@ -24,16 +23,16 @@ namespace Assets.Mine.Scripts.Injection
 
         protected override void Configure(IContainerBuilder builder)
         {
-            builder.Register<Gameplay.GridSystem.Grid>(Lifetime.Singleton);
-            builder.RegisterEntryPoint<GridInitializer>(Lifetime.Singleton);
-            builder.RegisterEntryPoint<CameraSizeHandler>(Lifetime.Singleton);
+            builder.Register<Grid>(Lifetime.Singleton);
+            builder.RegisterEntryPoint<GridInitializer>();
+            builder.RegisterEntryPoint<CameraSizeHandler>();
             builder.RegisterInstance<ScoreModel>(new ScoreModel());
 
             builder.RegisterInstance(parent);
             builder.Register<UnitFactory>(Lifetime.Singleton);
         }
     }
-
+/*
     #region Sample
     public class SampleView
     {
@@ -66,4 +65,5 @@ namespace Assets.Mine.Scripts.Injection
         }
     }
     #endregion
+    */
 }

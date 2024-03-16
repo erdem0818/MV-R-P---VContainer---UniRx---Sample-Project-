@@ -1,8 +1,8 @@
-using Assets.Mine.Scripts.LevelSystem;
+using Mine.Scripts.Level_System;
 using UnityEngine;
 using VContainer.Unity;
 
-namespace Assets.Mine.Scripts.Utils
+namespace Mine.Scripts.Utils
 {
     public class CameraSizeHandler : IStartable
     {

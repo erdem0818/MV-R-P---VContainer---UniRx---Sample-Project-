@@ -1,8 +1,8 @@
-using Assets.Mine.Scripts.Gameplay.Unit;
+using Mine.Scripts.Gameplay.UnitFolder;
 using UnityEngine;
 using VContainer.Unity;
 
-namespace Assets.Mine.Scripts.Gameplay.Factory
+namespace Mine.Scripts.Gameplay.FactoryFolder
 {
     public class UnitFactory
     {
@@ -18,13 +18,13 @@ namespace Assets.Mine.Scripts.Gameplay.Factory
         public UnitContext Create(bool isByMerge = false)
         {
             var unit = VContainerSettings.Instance.RootLifetimeScope.Container.Instantiate(_prefab, _parent);
-            unit.isByMerge = isByMerge;
+            unit.IsByMerge = isByMerge;
             return unit;
         }
 
         public UnitContext CreateByMerge(UnitContext first, UnitContext second)
         {
-            int score = first.model.Score.Value * 2;
+            int score = first.Model.Score.Value * 2;
 
             Object.Destroy(first.gameObject);
             Object.Destroy(second.gameObject);
