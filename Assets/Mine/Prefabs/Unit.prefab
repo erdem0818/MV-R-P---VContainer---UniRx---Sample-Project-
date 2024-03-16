@@ -135,14 +135,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   parentReference:
-    TypeName: 
+    TypeName: Mine.Scripts.Gameplay.UnitFolder.UnitProviderContext
   autoRun: 1
   autoInjectGameObjects: []
   <View>k__BackingField:
     textMesh: {fileID: 924345849681322093}
   <Model>k__BackingField:
     Score:
-      value: 0
+      value: 1
 --- !u!1 &5425309821162942025
 GameObject:
   m_ObjectHideFlags: 0

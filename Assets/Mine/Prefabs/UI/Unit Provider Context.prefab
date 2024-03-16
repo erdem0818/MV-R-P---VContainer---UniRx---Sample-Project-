@@ -136,7 +136,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   parentReference:
-    TypeName: Assets.Mine.Scripts.Injection.MainContext
+    TypeName: Mine.Scripts.Injection.MainContext
   autoRun: 1
   autoInjectGameObjects: []
   view:

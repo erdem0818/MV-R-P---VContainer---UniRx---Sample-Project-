@@ -32,7 +32,7 @@ namespace Mine.Scripts.Gameplay.FactoryFolder
             var unit = Create(true);
             unit.transform.parent = _parent;
             unit.UpdateScore(score);
-
+            
             return unit;
         }
     }

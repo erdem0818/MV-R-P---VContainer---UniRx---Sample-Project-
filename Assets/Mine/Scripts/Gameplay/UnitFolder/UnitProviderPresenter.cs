@@ -28,21 +28,21 @@ namespace Mine.Scripts.Gameplay.UnitFolder
 
         public void Start()
         {
-            InitalizeView();
+            InitializeView();
         }
 
-        private void InitalizeView()
+        private void InitializeView()
         {
             Observable.EveryUpdate().Subscribe(_ =>
             {
                 if(_grid.IsFull() == false)
                     _model.countDown.Value -= Time.deltaTime;
-                    
-                if(_model.countDown.Value <= 0)
-                {
-                    UnitContext unit = _unitFactory.Create(false);
-                    _model.countDown.Value = 10f;
-                }
+
+                if (!(_model.countDown.Value <= 0)) return;
+                
+                UnitContext unit = _unitFactory.Create();
+                _model.countDown.Value = 10f;
+                
             }).AddTo(Context.gameObject);
 
             _model.countDown.SubscribeWithState<float, TextMeshProUGUI>(_view.text, (cd, tx) => tx.text = $"{Mathf.CeilToInt(cd)}");

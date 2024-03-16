@@ -19,6 +19,9 @@ namespace Mine.Scripts.Gameplay.UI
 
         protected override void Configure(IContainerBuilder builder)
         {
+            //VContainerSettings.Instance.RootLifetimeScope.Container.Instantiate(unitProviderContext, canvas.transform);
+            //VContainerSettings.Instance.RootLifetimeScope.Container.Instantiate(scoreTextContext, canvas.transform);
+
             Instantiate(unitProviderContext, canvas.transform);
             Instantiate(scoreTextContext, canvas.transform);
         }
