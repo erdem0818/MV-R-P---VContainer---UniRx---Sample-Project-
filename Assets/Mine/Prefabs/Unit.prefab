@@ -135,14 +135,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   parentReference:
-    TypeName: Assets.Mine.Scripts.Injection.MainContext
+    TypeName: 
   autoRun: 1
   autoInjectGameObjects: []
-  <view>k__BackingField:
+  <View>k__BackingField:
     textMesh: {fileID: 924345849681322093}
-  <model>k__BackingField:
+  <Model>k__BackingField:
     Score:
-      value: 2
+      value: 0
 --- !u!1 &5425309821162942025
 GameObject:
   m_ObjectHideFlags: 0
